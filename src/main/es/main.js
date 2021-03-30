@@ -1,13 +1,25 @@
 export const rpn = {
   additions(additions) {
-    let total;
-      for (let i = 0; additions[i]; i++) {
-        if(additions[i] == '+') {
-            for (let y = i; additions[y] != ' '; y--) {
-                
+    let total = 0;
+    let member_one = 0;
+    let member_two = 0;
+
+    for (let i = additions.length; i > 0; i--) {
+        if (additions[i] === '+') {
+            for (let y = i; y > 0; y--) {
+                if (additions[y] >= '0' && additions[y] <= "9") {
+                    member_one = parseInt(additions[y]);
+                }
+                if (additions[y] >= '0' && additions[y] <= "9" && member_one) {
+                    member_two = parseInt(additions[y]);
+                }
+                if (member_one && member_two) {
+                    total += member_one + member_two;
+                    i = y;
+                }
             }
         }
-      }
+    }
     return 1;
   },
   subtractions(subtractions) {
