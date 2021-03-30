@@ -19,7 +19,6 @@ export const fizzBuzzer = {
 
   fizzFizz(number) {
     let result = number;
-    //for (let i = 0; number[i]; i++) {
     if (number == 3) {
       result = "FIZZ";
     }
@@ -29,7 +28,6 @@ export const fizzBuzzer = {
       }
       result += "FIZZ";
     }
-    //}
     return result;
   }
 };
